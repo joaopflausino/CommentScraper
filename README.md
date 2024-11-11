@@ -11,7 +11,7 @@ The project includes various Python scripts for web scraping, particularly targe
 ## Features
 
 - **Instagram Scraping**: Captures posts and comments using automated login and navigational scripts.
-- **Twitter (X) Scraping**: Extracts data from specified posts.
+- **Twitter (X) Scraping**: Currently under development.
 - **Sentiment Analysis**: Performs basic sentiment analysis on collected comments to categorize user sentiment.
 - **CSV Output**: Saves collected data to CSV files for easy review and further processing.
 
@@ -88,6 +88,12 @@ python X/XScrapy.py
 ## Contributing
 
 Contributions are welcome! Please follow the [Contributor’s Guide](CONTRIBUTING.md) and ensure all new code includes proper documentation and testing.
+
+## TODO LIST
+- [ ] Twitter scrap
+- [ ] Facebook scrap
+- [ ] Unify sentiment analysis for all social media
+- [ ] Improve performance
 
 ## License
 
