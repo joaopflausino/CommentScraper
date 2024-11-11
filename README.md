@@ -85,15 +85,16 @@ Run the Twitter scraper with:
 python X/XScrapy.py
 ```
 
-## Contributing
-
-Contributions are welcome! Please follow the [Contributor’s Guide](CONTRIBUTING.md) and ensure all new code includes proper documentation and testing.
-
 ## TODO LIST
 - [ ] Twitter scrap
 - [ ] Facebook scrap
+- [ ] multiple browser and 
 - [ ] Unify sentiment analysis for all social media
 - [ ] Improve performance
+
+## Contributing
+
+Contributions are welcome! Please follow the [Contributor’s Guide](CONTRIBUTING.md) and ensure all new code includes proper documentation and testing.
 
 ## License
 
