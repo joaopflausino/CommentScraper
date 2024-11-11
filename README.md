@@ -11,7 +11,7 @@ The project includes various Python scripts for web scraping, particularly targe
 ## Features
 
 - **Instagram Scraping**: Captures posts and comments using automated login and navigational scripts.
-- **Twitter (X) Scraping**: Extracts data from specified posts.
+- **Twitter (X) Scraping**: Currently under development.
 - **Sentiment Analysis**: Performs basic sentiment analysis on collected comments to categorize user sentiment.
 - **CSV Output**: Saves collected data to CSV files for easy review and further processing.
 
@@ -57,6 +57,16 @@ CommentScraper/
 
 3. **Configure credentials**:
    - Update `Creds.py` files in both `Instagram` and `X` folders with your login information.
+   - the `INSTAGRAM_LOGIN_PATH` and `INSTAGRAM_POST_PATH` are needed for the application to work properly
+   - the `Creds.py` files need to look something like this
+   ```python
+   USERNAME = 'YOUR_USERNAME'
+   PASSWORD = 'YOUR_PASSWORD'
+   FIND_USER = 'SOME_USER'
+   CSV_PATH = f'{FIND_USER}_posts.csv'
+   INSTAGRAM_LOGIN_PATH = 'https://www.instagram.com/accounts/login/'
+   INSTAGRAM_POST_PATH = 'https://www.instagram.com/p/'
+   FINAL_FILE = 'InstagramScraperDone.csv'
 
 ## Usage
 
@@ -68,12 +78,19 @@ python Instagram/main.py
 ```
 This will automate the process of logging in, finding posts, extracting comments, and performing sentiment analysis.
 
-### Twitter Scraper
+### Twitter Scraper (*this is still not working*)
 
 Run the Twitter scraper with:
 ```bash
 python X/XScrapy.py
 ```
+
+## TODO LIST
+- [ ] Twitter scrap
+- [ ] Facebook scrap
+- [ ] multiple browser and 
+- [ ] Unify sentiment analysis for all social media
+- [ ] Improve performance
 
 ## Contributing
 
@@ -82,7 +99,3 @@ Contributions are welcome! Please follow the [Contributor’s Guide](CONTRIBUTIN
 ## License
 
 This project is licensed under the terms of the MIT License. See the [LICENSE](LICENSE) file for details.
-
----
-
-This README provides a clear, structured overview suitable for developers and contributors. Let me know if you need additional details or specific sections expanded!
