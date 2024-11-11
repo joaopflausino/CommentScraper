@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "commentscraper"
+version = "0.1.0"
+description = ""
+authors = ["João Pedro Flausino de Lima <joaopflausino@outlook.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+pandas = "^2.2.3"
+spacy = "^3.8.2"
+transformers = "^4.46.2"
+instaloader = "^4.14"
+selenium = "^4.26.1"
+webdriver-manager = "^4.0.2"
+tensorflow = "^2.18.0"
+tf-keras = "^2.18.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
