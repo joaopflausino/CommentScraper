@@ -1,6 +1,6 @@
 import pandas as pd
 from browser_setup import setup_driver
-from Instagram.scraper import scrape_comments
+from scraper import scrape_comments
 from text_processing import process_text
 from sentiment_analysis import analyze_sentiment
 from Login import instagram_login  
@@ -35,6 +35,8 @@ def main():
         
         comments, post_id = scrape_comments(driver, url)
         comments_df = pd.DataFrame(comments, columns=["Comments"])
+        if len(comments_df) == 1 and comments_df.iloc[0]["Comments"] == "Inicie a conversa.":
+            continue
         reshaped_df = process_text(comments_df, post_id)
         all_comments_df.append(reshaped_df)
 

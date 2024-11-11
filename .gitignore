@@ -164,3 +164,4 @@ cython_debug/
 #Creds.py files
 Instagram/Creds.py
 X/Creds.py
+*.ipynb

@@ -10,6 +10,7 @@ def get_post_id(url):
 def load_comments(driver, url):
     driver.get(url)
     time.sleep(5)
+    # Load more comments if there are additional ones
     while True:
         try:
             load_more_button = driver.find_element(By.CSS_SELECTOR, "button._abl-")
@@ -18,7 +19,12 @@ def load_comments(driver, url):
         except:
             break
 
-    comment_spans = driver.find_elements(By.XPATH, "//span[contains(@style, '--base-line-clamp-line-height: 18px')]")
+    # Define the XPath to target <span> elements within the specific <div>
+    comment_spans = driver.find_elements(
+        By.XPATH,
+        "//div[contains(@class, 'x78zum5 xdt5ytf x1iyjqo2')]//span[contains(@style, '--base-line-clamp-line-height: 18px')]"
+    )
+
     return [span.text for span in comment_spans]
 
 def scrape_comments(driver, url):
