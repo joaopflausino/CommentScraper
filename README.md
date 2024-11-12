@@ -86,7 +86,7 @@ python X/XScrapy.py
 ```
 
 ## TODO LIST
-- [ ] create venv with poetry to manage dependencies (Crucial)
+- [x] create venv with poetry to manage dependencies (Crucial)
 - [ ] Twitter scrap
 - [ ] Facebook scrap
 - [ ] multiple browser and 
