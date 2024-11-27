@@ -1,3 +1,4 @@
+from os.path import isfile
 import pandas as pd
 from browser_setup import setup_driver
 from scraper import scrape_comments
@@ -5,7 +6,8 @@ from text_processing import process_text
 from sentiment_analysis import analyze_sentiment
 from Login import instagram_login  
 from Creds import USERNAME, PASSWORD, CSV_PATH,INSTAGRAM_POST_PATH,FINAL_FILE
-
+import os
+from find_posts import find_post
 
 def get_post_urls(csv_path):
     
@@ -15,12 +17,15 @@ def get_post_urls(csv_path):
 
 def main():
     csv_path = CSV_PATH  
-    post_urls = get_post_urls(csv_path)
     
     max_urls = 5
 
     all_comments_df = []
-    
+    if  isfile(csv_path) == False:
+        print("Downloading Posts")
+        find_post()
+
+    post_urls = get_post_urls(csv_path)
     
     driver = setup_driver()
     instagram_login(driver, USERNAME, PASSWORD)
@@ -33,13 +38,21 @@ def main():
         if i >= max_urls: 
             break
         
+        print("##########")
+        print(url)
+        print(i)
+        print("entrando na url")
         comments, post_id = scrape_comments(driver, url)
+    
+        # Directly create DataFrame as comments is now properly formatted
         comments_df = pd.DataFrame(comments, columns=["Comments"])
+    
         if len(comments_df) == 1 and comments_df.iloc[0]["Comments"] == "Inicie a conversa.":
             continue
+    
         reshaped_df = process_text(comments_df, post_id)
         all_comments_df.append(reshaped_df)
-
+    
     driver.quit()
 
     final_comments_df = pd.concat(all_comments_df, ignore_index=True)

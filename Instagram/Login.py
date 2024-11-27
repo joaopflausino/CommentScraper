@@ -12,8 +12,6 @@ def instagram_login(driver, username, password):
     
     
     time.sleep(3)
-    
-    
     username_input = driver.find_element(By.NAME, "username")
     password_input = driver.find_element(By.NAME, "password")
     
